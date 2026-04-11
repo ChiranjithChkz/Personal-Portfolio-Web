@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiranjith Chakma - CV</title>
+
+  <!-- Font Awesome CDN for official icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #0f172a; color: white; }
+
+    header { text-align: center; padding: 40px; background: linear-gradient(135deg, #1e293b, #334155); animation: fadeIn 2s ease; }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 15px #38bdf8;
+      margin-bottom: 15px;
+      transition: 0.3s;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #0ea5e9;
+    }
+    header h1 { font-size: 2.5rem; }
+    header p { color: #94a3b8; }
+
+    nav { display: flex; justify-content: center; gap: 20px; background: #1e293b; padding: 10px; }
+    nav a { color: white; text-decoration: none; transition: 0.3s; }
+    nav a:hover { color: #38bdf8; transform: scale(1.1); }
+
+    section { padding: 40px; max-width: 900px; margin: auto; animation: slideUp 1s ease; }
+
+    .card { background: #1e293b; padding: 20px; margin: 15px 0; border-radius: 10px; transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); background: #334155; }
+
+    ul { padding-left: 20px; }
+    li { margin: 8px 0; }
+
+    .contact-container { display: flex; gap: 20px; flex-wrap: wrap; }
+    .contact-left { flex: 2; }
+    .contact-right { flex: 1; display: flex; align-items: center; justify-content: center; }
+
+    .social-icons { display: flex; gap: 20px; }
+    .social-icons a {
+      color: white;
+      font-size: 24px;
+      transition: 0.3s;
+    }
+    .social-icons a:hover { color: #38bdf8; transform: scale(1.2); }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    button { padding: 10px 15px; border: none; background: #38bdf8; color: black; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+    button:hover { background: #0ea5e9; }
+
+    footer { text-align: center; padding: 20px; background: #1e293b; margin-top: 20px; }
+    .footer-icons { margin-top: 10px; display: flex; justify-content: center; gap: 25px; }
+    .footer-icons a { color: white; font-size: 24px; transition: 0.3s; }
+    .footer-icons a:hover { color: #38bdf8; transform: scale(1.2); }
+
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes slideUp { from {transform: translateY(20px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+
+    /* Floating animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Add your image file in same folder and rename if needed -->
+  <!-- Your profile image -->
+  <img src="./image/1000252913.jpg" alt="Profile Photo" class="profile-img">
+
+  <h1 id="name">Chiranjith Chakma</h1>
+  <p>Web Developer | Student</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>Hello! I'm Chiranjith Chakma, a passionate web developer and student who enjoys building modern web applications.</p>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="card">
+    <p>Chittagong University of Engineering and Technology</p>
+    <p>Department: Computer Science and Engineering</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">HTML</div>
+  <div class="card">CSS</div>
+  <div class="card">JavaScript</div>
+  <div class="card">React</div>
+  <div class="card">Node.js</div>
+</section>
+
+<section id="hobbies">
+  <h2>Hobbies</h2>
+  <div class="card">
+    <ul>
+      <li>Playing Football</li>
+      <li>Table Tennis</li>
+      <li>Chess</li>
+      <li>Reading Books</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-container">
+
+    <div class="contact-left card">
+      <p>Email: chiranjithchakma09@gmail.com</p>
+
+      <h3>Send Message</h3>
+
+      <!-- FormSubmit service (no backend needed) -->
+      <form action="https://formsubmit.co/chiranjithchakma09@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+        <!-- Disable captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-right">
+      <div class="social-icons">
+        <!-- Replace # with your real links -->
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Chiranjith Chakma</p>
+
+  <div class="footer-icons">
+    <!-- Replace # with your real links -->
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-github"></i></a>
+  </div>
+</footer>
+
+<script>
+  function showMessage() {
+    alert("Message sent! (Demo only)");
+  }
+
+  const name = document.getElementById("name");
+  name.addEventListener("mouseover", () => {
+    name.textContent = "👋 Hello, I'm Chiranjith Chakma";
+  });
+
+  name.addEventListener("mouseout", () => {
+    name.textContent = "Chiranjith Chakma";
+  });
+
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
