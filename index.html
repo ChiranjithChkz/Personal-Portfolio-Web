@@ -48,10 +48,25 @@ header p { color: #94a3b8; }
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   background: #1e293b;
   padding: 10px;
   flex-wrap: wrap;
+}
+
+/* MENU BUTTON */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
 nav a {
@@ -64,6 +79,7 @@ nav a {
 nav a:hover {
   color: #38bdf8;
   transform: scale(1.1);
+  
 }
 
 /* SECTIONS */
@@ -86,6 +102,15 @@ section {
 .card:hover {
   transform: translateY(-5px);
   background: #334155;
+}
+
+/* place image  */
+.place-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height: 180px;
+  object-fit: cover;
 }
 
 /* CONTACT */
@@ -193,25 +218,52 @@ footer {
 
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {
+
   header h1 { font-size: 1.6rem; }
   .profile-img { width: 110px; height: 110px; }
   section { padding: 20px 15px; }
-  nav { flex-direction: column; align-items: center; }
-  .contact-container { flex-direction: column; }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: #1e293b;
+  }
+
+  .nav-links a {
+    padding: 12px;
+    border-top: 1px solid #334155;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideUp 0.4s ease;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
 }
 
-/* ================= TABLET ================= */
+/* TABLET */
 @media (min-width: 601px) and (max-width: 992px) {
   header h1 { font-size: 2rem; }
   section { padding: 30px 20px; }
   .contact-container { flex-direction: column; }
 }
 
-/* ================= DESKTOP ================= */
+/* DESKTOP */
 @media (min-width: 993px) {
-  header h1 { font-size: 2.5rem; }
   section { padding: 40px; }
-  .contact-container { flex-direction: row; }
 }
 </style>
 </head>
@@ -219,30 +271,38 @@ footer {
 <body>
 
 <header>
-  <img src="1000252913.jpg" class="profile-img">
+  <img src="./image/1000252913.jpg" class="profile-img">
   <h1 id="name">Chiranjith Chakma</h1>
-  <p>Web Developer | Student</p>
+  <p>Web Developer enthusiast | Competitive Programmer | Student | Learner</p>
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#education">Education</a>
-  <a href="#skills">Skills</a>
-  <a href="#hobbies">Hobbies</a>
-  <a href="#contact">Contact</a>
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contact">Contact</a>
+    <a href="#collection">Collection</a>
+    <a href="#visited">Visited</a>
+  </div>
 </nav>
 
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
-    <p>Hello! I'm Chiranjith Chakma, a passionate web developer and student.</p>
+    <p>Hey, Iam Chiranjith Chakma. Iam a student and share my knowledge with my juniors. Besides those Iam also passionate about playing sports and learning as well as gaining new knowledge.I also have great attraction to visit new place. I also have great passion about learning new language whatever it is programming language or human language.</p>
   </div>
 </section>
 
 <section id="education">
   <h2>Education</h2>
   <div class="card">
-    <p>Chittagong University of Engineering and Technology</p>
+    <p>Chittagong University of Engineering and Technology, Chittagong</p>
     <p>Department: Computer Science and Engineering</p>
   </div>
 </section>
@@ -266,6 +326,43 @@ footer {
       <li>Reading Books</li>
     </ul>
   </div>
+</section>
+
+<section id="collection">
+  <h2>My Collection (Projects)</h2>
+
+  <div class="card">
+    <h3>Portfolio Website</h3>
+    <p>A personal CV website built using HTML, CSS, and JavaScript.</p>
+  </div>
+  <div class="card">
+    <h3>Hospital Patient Management System-</h3>
+    <p>This made with C-sharp language. Which contain the four fundamental pillar of C-sharp language</p>
+  </div>
+ 
+</section>
+
+<section id="visited">
+  <h2>Visited Places</h2>
+
+  <div class="card">
+    <img src="./image/place1.jpg" alt="Place 1" class="place-img">
+    <h3>Bandarban</h3>
+    <p>Beautiful পাহাড় and natural scenery. A peaceful place to relax.</p>
+  </div>
+
+  <div class="card">
+    <img src="./image/place2.jpg" alt="Place 2" class="place-img">
+    <h3>Cox's Bazar</h3>
+    <p>World’s longest sea beach. Amazing experience with friends.</p>
+  </div>
+
+  <div class="card">
+    <img src="./image/place3.jpg" alt="Place 3" class="place-img">
+    <h3>Rangamati</h3>
+    <p>Calm lake and green hills. Perfect for nature lovers.</p>
+  </div>
+
 </section>
 
 <section id="contact">
@@ -311,7 +408,7 @@ footer {
 </footer>
 
 <script>
-// name hover effect
+// name hover
 const name = document.getElementById("name");
 
 name.addEventListener("mouseover", () => {
@@ -331,12 +428,46 @@ document.querySelectorAll('nav a').forEach(a => {
   });
 });
 
-// demo submit
+// mobile menu toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// close menu after click
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+// demo form
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
-  alert("Message sent successfully (Demo)");
+
+  emailjs.sendForm(
+    "chiranjithchakma09@gmail.com",   // 🔁 replace
+    "YOUR_TEMPLATE_ID",  // 🔁 replace
+    this
+  )
+  .then(function() {
+    alert("✅ Message sent successfully!");
+  }, function(error) {
+    alert("❌ Failed to send message");
+    console.log(error);
+  });
+
   this.reset();
 });
+
+
+(function(){
+  emailjs.init("YOUR_PUBLIC_KEY"); // replace here
+})();
+
+
 </script>
 
 </body>
